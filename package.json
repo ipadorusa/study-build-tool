@@ -1,0 +1,27 @@
+{
+  "name": "study-todo",
+  "version": "1.0.0",
+  "description": "\"# study-todo\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp default"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipadorusa/study-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipadorusa/study-todo/issues"
+  },
+  "homepage": "https://github.com/ipadorusa/study-todo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "gulp-babel": "^8.0.0",
+    "gulp": "^4.0.0"
+  }
+}
