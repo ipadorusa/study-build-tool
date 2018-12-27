@@ -104,3 +104,63 @@ gulp.task('default', () =>
         .pipe(gulp.dest('dist'))
 );
 ```
+
+아니면 js에 js합치기 + 난독화 + 소스맵을 적용하고 싶다면 아래처럼 pipe에 추가 해도 된다. 
+
+추가 한만큼 노드 모듈 설치하고 선언해야한다.
+
+```javascript
+gulp.task('default', () =>
+    gulp.src('src/*.js')
+       .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: [
+               [
+                  "@babel/preset-env",
+                  {
+                     "targets": {
+                        "chrome": "58",
+                        "ie": "11"
+                     }
+                  }
+               ]
+            ]
+        }))
+       .pipe(concat("index.js"))
+       .pipe(uglify())
+       .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest('dist'))
+);
+```
+
+최종 구성
+
+```javascript
+const gulp          = require('gulp'),
+     babel         = require('gulp-babel'),
+     sourcemaps    = require('gulp-sourcemaps'),
+     concat        = require("gulp-concat"),
+     uglify        = require('gulp-uglify');
+ 
+gulp.task('default', () =>
+    gulp.src('src/*.js')
+       .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: [
+               [
+                  "@babel/preset-env",
+                  {
+                     "targets": {
+                        "chrome": "58",
+                        "ie": "11"
+                     }
+                  }
+               ]
+            ]
+        }))
+       .pipe(concat("index.js"))
+       .pipe(uglify())
+       .pipe(sourcemaps.write("."))
+        .pipe(gulp.dest('dist'))
+);
+```
