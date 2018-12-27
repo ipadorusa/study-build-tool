@@ -4,7 +4,6 @@
   "description": "\"# study-todo\"",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp default"
   },
   "repository": {
@@ -20,8 +19,12 @@
   "homepage": "https://github.com/ipadorusa/study-todo#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
+    "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
-    "gulp": "^4.0.0"
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.1"
   }
 }
