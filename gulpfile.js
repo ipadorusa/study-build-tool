@@ -12,10 +12,10 @@ gulp.task('default', () =>
 	            [
 		            "@babel/preset-env",
 		            {
-		                "targets":
-	                        {
-	                            "browsers": ["last 2 versions", "> 5% in KR"]
-	                        }
+			            "targets": {
+				            "chrome": "58",
+				            "ie": "11"
+			            }
 		            }
 	            ]
             ]
