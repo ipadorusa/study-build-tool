@@ -5,14 +5,10 @@
 ## Index
 
 1. [Webpack Definition]: (#webpack-definition)	"Webpack Definition"
-
 2. [Difference between Webpack vs Gulp, Grunt]: (#difference-between-webpack-vs-gulp-grunt)	"Difference between Webpack vs Gulp, Grunt"
-
 3. [Why would I use Webpack?]: (#why-would-i-use-webpack)	"Why would I use Webpack?"
-
-4. [Concepts]: #concepts	"Concepts"
-
-5. [Install]: #install	"Install"
+4. [Concepts]: (#concepts)	"Concepts"
+5. [Install]: (#install)	"Install"
 
 
 
