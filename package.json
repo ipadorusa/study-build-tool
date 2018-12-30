@@ -1,0 +1,27 @@
+{
+  "name": "study-todo",
+  "version": "1.0.0",
+  "description": "## Todo를 프레임워크 없이 만드는거 따라 해보기",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack --config webpack.config.js",
+    "dev": "webpack --mode=development",
+    "prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ipadorusa/study-todo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ipadorusa/study-todo/issues"
+  },
+  "homepage": "https://github.com/ipadorusa/study-todo#readme",
+  "devDependencies": {
+    "path": "^0.12.7",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.1.2"
+  }
+}
