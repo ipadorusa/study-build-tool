@@ -4,9 +4,9 @@
 
 ## Index
 
-1. [Webpack Definition](#Webpack Definition)
-2. [Difference between Webpack vs Gulp, Grunt](#Difference between Webpack vs Gulp, Grunt)
-3. [Why would I use Webpack?](#Why would I use Webpack?)
+1. [Webpack Definition](#webpack-definition)
+2. [Difference between Webpack vs Gulp, Grunt](#difference-between-webpack-vs-gulp-grunt)
+3. [Why would I use Webpack?](#why-would-i-use-webpack)
 4. [Concepts](#Concepts)
 5. [Install](#Install)
 
@@ -22,11 +22,13 @@
 
 ## Difference between Webpack vs Gulp, Grunt
 
-- Grunt, Gulp (common)
+- Webpack
+
+  - Module Bundler
+
+- Grunt, Gulp
 
   - 단순한 반복적인 작업을 위한 Javascript Task Runner 입니다.
-
-    예) css나 javascript 의 concat, minify, compress, uglify를 할때 사용합니다.
 
   - > 한마디로 : 자동화. minification, compilation, unit testing, linting 등과 같은 반복적 인 작업을 수행 할 때 수행해야 할 작업이 적을수록 작업이 쉬워집니다. Gruntfile을 통해 구성한 후에는 작업 주자가 당신과 팀을 위해 평범한 작업을 거의 수행 할 수 있습니다.
 
@@ -37,6 +39,8 @@
 - Gulp
 
   - [gulp v4.0.0 2018/01/01](https://gulpjs.com/)
+
+
 
 - Grunt vs Gulp (difference)
 
