@@ -4,9 +4,10 @@
   "description": "## Todo를 프레임워크 없이 만드는거 따라 해보기",
   "main": "app.js",
   "scripts": {
-    "start": "webpack --config webpack.config.js",
+    "start:dev": "webpack-dev-server --color",
     "dev": "webpack --mode=development",
-    "prod": "webpack --mode=production"
+    "prod": "webpack --mode=production",
+    "watch": "webpack --progress --watch --colors --display-error-details"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,15 @@
   },
   "homepage": "https://github.com/ipadorusa/study-todo#readme",
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "css-loader": "^2.1.0",
     "path": "^0.12.7",
+    "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
   }
 }
