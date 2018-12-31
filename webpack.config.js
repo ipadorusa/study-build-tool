@@ -10,7 +10,7 @@ const cleanOptions = {
 
 
 module.exports = {
-  entry: './src/app.js',
+  entry: ['@babel/polyfill','./src/app.js'],
   output: {
     filename: 'app.js',
     path: path.resolve(__dirname, 'dist')
