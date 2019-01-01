@@ -20,6 +20,16 @@
 
 
 
+## Build
+
+- transpile - babel / typescript / flow
+- pre-process (complie, auto-prefix, etc.) - sass / less / postcss
+- uglify(minify, mingle, optimize, etc.) - uglify-js / terser
+- bundle (concat, tree-shake, etc) - webpack / rollup / parcel
+- compress (gzip, etc)
+
+
+
 ## Difference between Webpack vs Gulp, Grunt
 
 - Webpack
