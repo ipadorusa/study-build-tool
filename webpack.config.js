@@ -1,5 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 
 const cleanOptions = {
   root:     '',
@@ -19,7 +21,16 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
       },
       {
         test: /\.(js|jsx)$/,
@@ -39,6 +50,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin([
         'dist'
-    ], cleanOptions)
+    ], cleanOptions),
+    new ExtractTextPlugin("app.css")
   ]
 };
