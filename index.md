@@ -23,7 +23,7 @@
 
 
 ## 3. BUILD TOOLS의 두 종류
-
+> 두 죵루가 어떤게 있는지 확인하자
 ### Task Runners
 
 1. `Gulp`    
@@ -35,4 +35,75 @@
 1. `Webpack`
 2. `Parcel`
 3. `Rollup`
+
+
+
+## 4.  Task Runners
+
+> 단순한 반복적인 작업을 반복적으로 수행하는 것이 Task Runner다.
+>
+> 예를들면  minification, compilation, unit testing, linting 등과 같은 반복적 인 작업을 수행하는 것들을 말한다.
+
+
+
+### Last Released (2019/01/07기준)
+
+| Grunt                                                        |   구분   | Gulp                                          |
+| ------------------------------------------------------------ | :------: | --------------------------------------------- |
+| [Grunt CLI 1.3.0 releasedAugust 15, 2018](https://gruntjs.com/blog/2018-08-15-grunt-cli-1.3.0-released) | Last Rel | [gulp v4.0.0 2018/01/01](https://gulpjs.com/) |
+| 설정 기반                                                    | 작동방식 | javascript 기반                               |
+| Gruntfile.js                                                 | 필요파일 | gulpfile.js                                   |
+
+#### Gruntfile.js  설정을 하여 사용
+
+```javascript
+grunt.initConfig({
+  sass: {
+    dist: {
+      files: [{
+        cwd: 'app/styles',
+        src: '**/*.scss',
+        dest: '../.tmp/styles',
+        expand: true,
+        ext: '.css'
+      }]
+    }
+  },
+  autoprefixer: {
+    options: ['last 1 version'],
+    dist: {
+      files: [{
+        expand: true,
+        cwd: '.tmp/styles',
+        src: '{,*/}*.css',
+        dest: 'dist/styles'
+      }]
+    }
+  },
+  watch: {
+    styles: {
+      files: ['app/styles/{,*/}*.scss'],
+      tasks: ['sass:dist', 'autoprefixer:dist']
+    }
+  }
+});
+grunt.registerTask('default', ['styles', 'watch']);
+```
+
+#### gulpfile.js  - pipe로 연결하여 사용
+
+```javascript
+gulp.task('sass', function () {
+  gulp.src('app/styles/**/*.scss')
+    .pipe(sass())
+    .pipe(autoprefixer('last 1 version'))
+    .pipe(gulp.dest('dist/styles'));
+});
+gulp.task('default', function() {
+  gulp.run('sass');
+  gulp.watch('app/styles/**/*.scss', function() {
+    gulp.run('sass');
+  });
+});
+```
 
