@@ -24,15 +24,15 @@
 
 ## 3. BUILD TOOLS의 두 종류
 
-    ### Task Runners
-    
-    1. `Gulp`    
-    2. `Grunt`   
-    
-    
-    ### Module Bundlers
-    
-    1. `Webpack`
-    2. `Parcel`
-    3. `Rollup`
+### Task Runners
+
+1. `Gulp`    
+2. `Grunt`   
+
+
+### Module Bundlers
+
+1. `Webpack`
+2. `Parcel`
+3. `Rollup`
 
