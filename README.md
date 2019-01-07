@@ -178,3 +178,18 @@ module.exports = {
   }
 };
 ```
+
+
+
+## Webpack v3 -> v4 오면서 안되는것들
+
+```
+webpack-manifest-plugin
+extract-text-webpack-plugin
+sw-precache-webpack-plugin
+
+extract-text-webpack-plugin -> mini-css-extract-plugin으로 대체 
+css minify -> optimize-css-assets-webpack-plugin
+js uglify -> uglifyjs-webpack-plugin
+```
+
