@@ -11,14 +11,12 @@
 
 ## 2. Build 단계에서 하는 행동
 
+> 변환, 전처리, 난독화, 번들, 압축 그 외 린팅
+
 - transpile - `babel / typescript / flow`
-
 - pre-process (complie, auto-prefix, etc.) - `sass / less / postcss`
-
 - uglify(minify, mingle, optimize, etc.) - `uglify-js / terser`
-
 - bundle (concat, tree-shake, etc) - `webpack / rollup / parcel`
-
 - compress (gzip, etc)
 
 
@@ -44,17 +42,7 @@
 >
 > 예를들면  minification, compilation, unit testing, linting 등과 같은 반복적 인 작업을 수행하는 것들을 말한다.
 
-
-
-### Last Released (2019/01/07기준)
-
-| Grunt                                                        |   구분   | Gulp                                          |
-| ------------------------------------------------------------ | :------: | --------------------------------------------- |
-| [Grunt CLI 1.3.0 releasedAugust 15, 2018](https://gruntjs.com/blog/2018-08-15-grunt-cli-1.3.0-released) | Last Rel | [gulp v4.0.0 2018/01/01](https://gulpjs.com/) |
-| 설정 기반                                                    | 작동방식 | javascript 기반                               |
-| Gruntfile.js                                                 | 필요파일 | gulpfile.js                                   |
-
-#### Gruntfile.js  설정을 하여 사용
+#### Gruntfile.js  `설정`을 하여 사용
 
 ```javascript
 grunt.initConfig({
@@ -90,7 +78,7 @@ grunt.initConfig({
 grunt.registerTask('default', ['styles', 'watch']);
 ```
 
-#### gulpfile.js  - pipe로 연결하여 사용
+#### gulpfile.js  - javascript를 문법에  `pipe`로 연결하여 사용
 
 ```javascript
 gulp.task('sass', function () {
@@ -105,5 +93,21 @@ gulp.task('default', function() {
     gulp.run('sass');
   });
 });
+```
+
+### Last Released (2019/01/07기준)
+
+| Grunt                                                        |   구분   | Gulp                                          |
+| ------------------------------------------------------------ | :------: | --------------------------------------------- |
+| [Grunt CLI 1.3.0 releasedAugust 15, 2018](https://gruntjs.com/blog/2018-08-15-grunt-cli-1.3.0-released) | Last Rel | [gulp v4.0.0 2018/01/01](https://gulpjs.com/) |
+| 설정 기반                                                    | 작동방식 | javascript 기반                               |
+| Gruntfile.js                                                 | 필요파일 | gulpfile.js                                   |
+
+
+
+## 5. 실습해보기 (Gulp)
+
+```bash
+git checkout gulp-babel
 ```
 
