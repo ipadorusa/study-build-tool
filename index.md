@@ -8,7 +8,7 @@
 
 ## 1. developer-roadmap 2019
 
-![frontend](src\image\frontend.png)
+![frontend](https://github.com/ipadorusa/study-todo/blob/webpack/src/image/frontend.png)
 
 자료참조 [developer-roadmap 2019](https://github.com/kamranahmedse/developer-roadmap)
 
