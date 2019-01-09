@@ -4,13 +4,7 @@
 
 
 ## Index
-
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
 - [BUILD TOOLS](#build-tools)
-  - [Index](#index)
   - [1. Developer-Roadmap 2019](#1-developer-roadmap-2019)
   - [2. Build 단계에서 하는 행동](#2-build-%EB%8B%A8%EA%B3%84%EC%97%90%EC%84%9C-%ED%95%98%EB%8A%94-%ED%96%89%EB%8F%99)
   - [3. BUILD TOOLS의 두 종류](#3-build-tools%EC%9D%98-%EB%91%90-%EC%A2%85%EB%A5%98)
@@ -20,8 +14,6 @@
     - [gulpfile.js  - javascript를 문법에  `pipe`로 연결하여 사용](#gulpfilejs----javascript%EB%A5%BC-%EB%AC%B8%EB%B2%95%EC%97%90--pipe%EB%A1%9C-%EC%97%B0%EA%B2%B0%ED%95%98%EC%97%AC-%EC%82%AC%EC%9A%A9)
   - [Last Released (2019/01/07기준)](#last-released-20190107%EA%B8%B0%EC%A4%80)
   - [5. 실습해보기 (Gulp)](#5-%EC%8B%A4%EC%8A%B5%ED%95%B4%EB%B3%B4%EA%B8%B0-gulp)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 
