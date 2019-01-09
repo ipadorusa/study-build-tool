@@ -99,6 +99,63 @@ grunt.initConfig({
 });
 grunt.registerTask('default', ['styles', 'watch']);
 ```
+```javascript
+module.exports = function(grunt) {
+    // 가) 프로젝트 환경설정.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        csscomb: {
+            dynamic_mappings: {
+                expand: true,
+                cwd: 'asset/css/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'dist/css/',
+                ext: '.sort.css'
+            },
+            options: {
+                config: 'csscomb.json',
+            }
+        },
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'dist/css/',
+                src: ['*.css', '!*.min.css'],
+                dest: 'dist/css/',
+                ext: '.min.css'
+            },
+            options: {
+                keepSpecialComments: 0
+            }
+        },
+        concat: {
+            options: {
+                separator: ';'
+            },
+            dist: {
+                src: ['asset/js/*.js'],
+                dest: 'dist/js/<%= pkg.name %>.js'
+            }
+        },
+        uglify: {
+            options: {
+                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+            },
+            dist: {
+                files: {
+                    'dist/js/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+                }
+            }
+        }
+    });
+    grunt.loadNpmTasks('grunt-csscomb');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.registerTask('start', ['csscomb', 'cssmin', 'concat', 'uglify']);
+};
+```
+
 
 #### gulpfile.js  - javascript를 문법에  `pipe`로 연결하여 사용
 
