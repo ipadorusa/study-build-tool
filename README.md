@@ -4,9 +4,11 @@
 
 ## 목차 
 
-1. [브랜치 이동](#1-브랜치이동)
-2. [Gulp 설치](#2-gulp설치)
-3. [Babel 7 설치](#3-babel-7-설치)
+- [Gulp 사용법(bable + 압축 + 난독화)](#gulp-%EC%82%AC%EC%9A%A9%EB%B2%95bable--%EC%95%95%EC%B6%95--%EB%82%9C%EB%8F%85%ED%99%94)
+  - [목차](#%EB%AA%A9%EC%B0%A8)
+  - [1. 브랜치이동](#1-%EB%B8%8C%EB%9E%9C%EC%B9%98%EC%9D%B4%EB%8F%99)
+  - [2. Gulp설치](#2-gulp%EC%84%A4%EC%B9%98)
+  - [3. Babel 7 설치](#3-babel-7-%EC%84%A4%EC%B9%98)
 
 
 
