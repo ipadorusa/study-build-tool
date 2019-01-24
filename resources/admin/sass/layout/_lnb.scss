@@ -1,0 +1,477 @@
+// lnb
+.adm_wrap_lnb {
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  z-index:$zindexLnb;
+  width:$widthLnb;
+  @include fontDefault();
+  .btn_fold {
+    position:absolute;
+    top:$heightHeader + 38;
+    right:-29px;
+    @include size(29px, 47px);
+    border-radius:0 3px 3px 0;
+    box-shadow:$effectShadow;
+    background:$white;
+
+    $btnFoldSetting:mix($lnbColorSetting, $white, 94%);
+    &:after {
+      display:block;
+      @include size(7px);
+      margin-left:12px;
+      border:1px solid;
+      border-color:$white $white $black $black;
+      @include prefix(transform, rotate(45deg), ms webkit);
+      content:"";
+      .adm_body_setting & {
+        border-color:$btnFoldSetting $btnFoldSetting $white $white;
+      }
+    }
+    .adm_body_setting & {
+      background-color:$btnFoldSetting;
+    }
+  }
+
+  // lnb folding
+  .folding & {
+    width:$widthLnbFolding;
+    .tit_menu,
+    .tit_option,
+    .submenu {
+      display:none;
+    }
+    .btn_fold {
+      &:after {
+        margin-left:7px;
+        @include prefix(transform, rotate(225deg), ms webkit);
+      }
+    }
+  }
+}
+
+.adm_lnb {
+  overflow-x:hidden;
+  overflow-y:auto;
+  position:relative;
+  z-index:$zindexLnbInner;
+  margin-top:$heightHeader;
+  width:$full;
+  height:calc(100% - #{$heightHeader});
+  box-shadow:$effectShadow;
+  box-sizing:border-box;
+  font-size:$fontSizeL;
+  background:$white;
+  @include changeScroll($white, #ddd);
+  .tit_menu {
+    display:block;
+    margin:35px 0 25px 15px;
+    color:$fontColor2;
+    font-size:22px;
+    font-weight:normal;
+    letter-spacing:$letterspacing * 2;
+    line-height:29px;
+  }
+  li.on {
+    > a {
+      color:$primaryColor;
+      font-weight:bold;
+    }
+  }
+  .lnbmenu {
+    > li {
+      padding:13px 11px;
+      line-height:23px;
+      > a {
+        display:inline-block;
+        vertical-align:top;
+        &:hover {
+          color:$primaryColor;
+        }
+        &:before {
+          @include makePseudoIcon();
+          @include size($lnbIconSize);
+          margin-right:11px;
+          background:url($imageIco + "ico_lnb_adm.png") no-repeat;
+          background-position-x:0;
+        }
+      }
+      &.on {
+        font-size:$fontSizeL + 1;
+        > a:before {
+          background-position-x:$lnbIconSize * -1;
+        }
+      }
+    }
+    // lnb icon variation
+    @include lnbIconVariation($lnbIconAdm, "a");
+  }
+  .submenu {
+    margin-left:34px;
+    font-size:$fontSizeM;
+    > li {
+      margin-top:5px;
+      line-height:$lineheight;
+    }
+  }
+
+  // lnb folding
+  .folding & {
+    padding-top:42px;
+    .lnbmenu {
+      > li {
+        padding:0;
+        > a {
+          @include size(50px);
+          font-size:0;
+          &:before {
+            margin:13px 0 0 13px;
+          }
+        }
+        &:hover {
+          background:rgba($primaryColor, 0.4);
+        }
+        &.on {
+          background:$primaryColor;
+          > a:before {
+            background-position-x:$lnbIconSize * -2;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* homepage setting lnb */
+.adm_lnb_setting {
+  overflow-x:hidden;
+  overflow-y:auto;
+  position:relative;
+  z-index:$zindexLnbInner;
+  margin-top:$heightHeader;
+  padding-top:16px;
+  width:$full;
+  height:calc(100% - #{$heightHeader});
+  box-shadow:0 1px 7px 0 rgba(77, 77, 77, 0.17);
+  box-sizing:border-box;
+  color:$fontColor4;
+  font-size:$fontSizeL;
+  line-height:18px;
+  background:$lnbColorSetting;
+  $lnbScrollThumb:mix($lnbColorSetting, $white, 70%);
+  @include changeScroll($lnbColorSetting, $lnbScrollThumb);
+  button {
+    display:block;
+    width:$full;
+    color:$fontColor4;
+    letter-spacing:inherit;
+  }
+  .tit_menu {
+    display:block;
+    margin-bottom:15px;
+    padding:0 20px 0 15px;
+    font-size:16px;
+    font-weight:normal;
+    line-height:21px;
+    text-align:left;
+    @include prefix(transition, color 0.15s, ms webkit);
+    &:after {
+      @include makePseudoIcon();
+      float:right;
+      margin-top:9px;
+      @include size(11px, 6px);
+      background:url($imageIco + "ico_arrow_lnb.png") no-repeat;
+      @include prefix(transition, transform 0.15s, ms webkit);
+    }
+  }
+  .lnbmenu {
+    margin-bottom:16px;
+    padding-bottom:18px;
+    border-bottom:1px solid #1c1c1c;
+    > li {
+      padding:5px 20px 11px;
+    }
+  }
+  .btn_menu {
+    min-height:$lnbIconSize;
+    font-size:$fontSizeM;
+    line-height:23px;
+    text-align:left;
+    &:before {
+      @include makePseudoIcon();
+      @include size($lnbIconSize);
+      margin-right:8px;
+      background:url($imageIco + "ico_lnb_set.png") no-repeat;
+      opacity:0.5;
+    }
+  }
+  .panel_editor.type_layout {
+    // display:none;
+    overflow-x:hidden;
+    overflow-y:auto;
+    position:fixed;
+    top:170px;
+    bottom:0;
+    left:$widthLnb;
+    $panelScrollThumb:mix(#1d1d1d, $white, 70%);
+    @include changeScroll(#1d1d1d, $panelScrollThumb);
+  }
+  .wrap_add_page {
+    // display:none;
+    margin:0 -20px;
+  }
+  .btn_add_page {
+    display:none;
+    padding:0 13px 0 5px;
+  }
+  // lnb icon variation
+  @include lnbIconVariation($lnbIconSetting, ".btn_menu");
+
+  .group_lnbmenu {
+    &.active {
+      .tit_menu {
+        color:$white;
+        font-weight:bold;
+        &:after {
+          @include prefix(transform, rotate(180deg), ms webkit);
+        }
+      }
+      .lnbmenu {
+        display:block;
+      }
+      .btn_menu {
+        color:$white;
+      }
+      @at-root body:not(.folding) & {
+        .btn_menu:before {
+          opacity:1;
+        }
+        .btn_add_page,
+        .wrap_add_page,
+        .submenu,
+        .panel_editor {
+          display:block;
+        }
+      }
+    }
+    &.disabled {
+      .tit_menu,
+      .btn_menu {
+        pointer-events:none;
+        cursor:default;
+      }
+      .tit_menu:after {
+        display:none;
+      }
+      @at-root .folding & {
+        .lnbmenu {
+          li:hover {
+            background:transparent;
+          }
+        }
+      }
+    }
+    &:last-child {
+      .lnbmenu {
+        border-bottom:none;
+      }
+    }
+  }
+  .submenu {
+    display:none;
+    overflow:hidden;
+    margin-top:6px;
+    li {
+      position:relative;
+      padding:9px 0 8px 5px;
+      &.on {
+        .btn_option {
+          color:$white;
+          font-weight:bold;
+        }
+        .tit_switch {
+          color:$white;
+          font-weight:bold;
+        }
+      }
+    }
+    .btn_option {
+      min-height:23px;
+      font-size:$fontSizeL;
+      text-align:left;
+    }
+    .switch_area {
+      .adm_switch {
+        float:right;
+      }
+    }
+  }
+  // type setting
+  .submenu_type {
+    margin-bottom:11px;
+    .btn_option {
+      padding:3px 91px 3px 0;
+      height:67px;
+      &:disabled {
+        pointer-events:none;
+      }
+      &.type_a {
+        background:url($imageThumb + "thumb_type_a.png") no-repeat 100% 50%;
+      }
+      &.type_b {
+        background:url($imageThumb + "thumb_type_b.png") no-repeat 100% 50%;
+      }
+    }
+    li {
+      margin-top:4px;
+      padding:0 3px 0 5px;
+      &.on {
+        .btn_option {
+          color:$primaryColorPanel;
+          &:after {
+            position:absolute;
+            top:0;
+            right:0;
+            @include makePseudoIcon();
+            @include size(88px, 61px);
+            border:3px solid currentColor;
+          }
+        }
+      }
+    }
+  }
+  // color setting
+  .submenu_color {
+    @include clearfix();
+    margin:2px 0 4px;
+    li {
+      float:left;
+      padding-right:0;
+      width:44%;
+      box-sizing:border-box;
+      &:nth-of-type(2n) {
+        float:right;
+      }
+      .btn_option {
+        &:after {
+          @include makePseudoIcon();
+          @include size(20px, 16px);
+          float:right;
+          margin-top:2px;
+          border-radius:10px;
+          opacity:0.33;
+        }
+        @for $x from 1 through length($themesFront) {
+          $themeTypeFront:nth(map-keys($themesFront), $x);
+          $themePrimary:mapDeepGet($themesFront, $themeTypeFront, primary);
+          &.theme#{$x}:after {
+            background-color:$themePrimary;
+          }
+        }
+      }
+      &.on {
+        .btn_option {
+          @for $x from 1 through length($themesFront) {
+            $themeTypeFront:nth(map-keys($themesFront), $x);
+            $themePrimary:mapDeepGet($themesFront, $themeTypeFront, primary);
+            &.theme#{$x} {
+              color:$themePrimary;
+            }
+          }
+          &:after {
+            opacity:1;
+          }
+        }
+      }
+    }
+  }
+  // page setting
+  .submenu_page {
+    margin-right:-20px;
+    margin-left:-20px;
+    .page_title {
+      position:absolute;
+      top:4px;
+      left:0;
+      padding:4px 20px 10px 14px;
+      width:100%;
+      box-sizing:border-box;
+        background:$primaryColorSetting;
+    }
+    .wrap_add_page {
+      padding:0;
+      .page_title {
+        position:static;
+        margin-left:0;
+      }
+    }
+    .page_control {
+      display:none;
+      @include clearfix();
+      clear:both;
+      padding:23px 0 13px;
+      text-align:center;
+      > button {
+        display:inline-block;
+        margin-left:20.5%;
+        @include size($lnbIconSize);
+        font-size:0;
+        vertical-align:top;
+        &:first-of-type {
+          margin-left:0;
+        }
+        &:before {
+          @include makePseudoIcon();
+          @include size($lnbIconSize);
+          background:url($imageIco + "ico_lnb_control.png") no-repeat;
+        }
+      }
+      @include lnbIconVariation($lnbIconControl, ".btn_control");
+    }
+    li {
+      padding-right:20px;
+      padding-left:25px;
+      &.on {
+        .tit_switch {
+          color:$white;
+        }
+      }
+      &.active {
+        background:$primaryColorSetting;
+        .page_control {
+          display:block;
+        }
+      }
+    }
+  }
+
+  // lnb folding
+  .folding & {
+    padding-top:42px;
+    .lnbmenu {
+      display:block;
+      margin:0;
+      padding:0;
+      border:none;
+      > li {
+        padding:0;
+        &:hover {
+          background-color:$primaryColorSetting;
+        }
+      }
+    }
+    .btn_menu {
+      @include size(50px);
+      font-size:0;
+      &:before {
+        margin:0 0 0 13px;
+      }
+    }
+    .btn_add_page,
+    .wrap_add_page,
+    .panel_editor.type_layout {
+      display:none !important;
+    }
+  }
+}

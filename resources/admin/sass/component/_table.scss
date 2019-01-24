@@ -1,0 +1,66 @@
+.adm_tbl {
+  width:$full;
+  font-size:$fontSizeM;
+  line-height:$lineheight;
+  table-layout:fixed;
+  th {
+    background:$secondaryColor;
+  }
+}
+.adm_tbl_list {
+  border-top:1px solid $borderColorTable;
+  a {
+    color:$linkColor;
+  }
+  > thead {
+    th {
+      height:50px;
+      border-bottom:1px solid $borderColor;
+      font-size:$fontSizeL;
+    }
+  }
+  > tbody {
+    > tr {
+      > td {
+        padding:16px 11px;
+        height:18px;
+        border-bottom:1px solid mix($borderColor, $white, 50);
+        text-align:center;
+        &.align_l {
+          text-align:left;
+        }
+        &.align_r {
+          text-align:right;
+        }
+        a:hover {
+          text-decoration:underline;
+        }
+      }
+    }
+  }
+}
+.adm_tbl_form {
+  > tbody {
+    > tr {
+      > th,
+      > td {
+        height:32px;
+      }
+      > th {
+        padding:7px 19px 6px;
+        border-bottom:1px solid $white;
+        font-weight:normal;
+        text-align:left;
+      }
+      > td {
+        padding:7px 20px 6px 22px;
+      }
+      &:last-child > th {
+        border-bottom:none;
+      }
+    }
+  }
+  .adm_modal & {
+    border-top:1px solid mix($borderColor, $white, 50);
+  }
+}

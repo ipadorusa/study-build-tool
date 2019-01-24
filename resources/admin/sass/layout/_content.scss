@@ -1,0 +1,124 @@
+.adm_body {
+  background:$contentColor;
+  a {
+    color:$linkColor;
+  }
+}
+.blind {
+  @include blind();
+}
+
+// content
+.adm_wrap_content {
+  margin:($heightHeader + 32) $marginContentRight 0 ($widthLnb + $marginContentLeft);
+  min-width:$widthContentMin - $widthLnb - $marginContent;
+  .adm_body & {
+    @include fontDefault();
+  }
+  .page_header {
+    @include clearfix();
+    margin:0 0 40px 15px;
+    .tit_page {
+      float:left;
+      font-size:34px;
+      font-weight:normal;
+      letter-spacing:$letterspacing * 3;
+      line-height:45px;
+    }
+    .info_addition {
+      float:left;
+      margin:16px 0 0 40px;
+      font-size:$fontSizeXL;
+      font-weight:bold;
+      line-height:20px;
+      a {
+        text-decoration:underline;
+      }
+    }
+  }
+  .tit_section {
+    margin:50px 0 10px;
+    font-weight:normal;
+    &:first-of-type {
+      margin-top:0;
+    }
+  }
+  .adm_content {
+    $marginContentTop:$heightHeader + $heightPageTitle + 32;
+    position:relative;
+    padding:20px 20px 20px ($widthPanel + 20);
+    min-height:calc(100vh - #{$marginContentTop});
+    box-sizing:border-box;
+    font-size:$fontSizeM;
+    background:$white;
+  }
+
+  // lnb folding
+  .folding & {
+    margin-left:$widthLnbFolding + $marginContentLeft;
+  }
+
+  // no lnb
+  .no_lnb & {
+    margin-left:$marginContentRight;
+    min-width:$widthContentMin - ($marginContentRight * 2);
+  }
+}
+
+.wrap_board_top {
+  @include clearfix();
+  margin-bottom:9px;
+  height:$sizeM;
+  .cnt_article,
+  .list_aritcle {
+    margin-top:$sizeM - 17;
+  }
+  .cnt_article {
+    float:left;
+    margin-right:20px;
+    line-height:$lineheight;
+    strong {
+      color:$primaryColorOrange;
+      font-size:$fontSizeL;
+    }
+  }
+}
+
+.wrap_unit {
+  .unit {
+    display:inline-block;
+    margin:6px 4px;
+    vertical-align:top;
+    &:first-child {
+      margin-left:0;
+    }
+    &:not(.unit_title) {
+      color:$fontColor4;
+    }
+  }
+}
+
+/* homepage setting content */
+.adm_wrap_content {
+  .adm_body_setting & {
+    margin:$heightHeader 0 0 0;
+    min-width:$widthContentMin;
+  }
+
+  // lnb folding
+  .folding.adm_body_setting & {
+    margin-left:0;
+  }
+}
+.adm_content_setting {
+  overflow-x:hidden;
+  .container {
+    .breadcrumb {
+      position:static;
+      margin-top:$heightHeader;
+    }
+    .wrap_tit {
+      margin-top:0;
+    }
+  }
+}
