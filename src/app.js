@@ -1,3 +1,4 @@
-import {sum} from './b';
-
-console.log(sum(1, 3))
+const sum = (a, b) => a + b;
+export {
+	sum
+};

@@ -11,9 +11,10 @@ const cleanOptions = {
 module.exports = {
 	entry: ['@babel/polyfill', './src/app.js'],
 	output: {
-		filename: 'app.js',
-		library: 'lib',
-		path: path.resolve(__dirname, 'dist')
+		path: path.resolve(__dirname, 'dist/js'),
+		filename: 'app.bundle.js',
+		libraryTarget: 'var',
+		library: 'EntryPoint'
 	},
 	module: {
 		rules: [
