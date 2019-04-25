@@ -1,8 +1,5 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const cleanOptions = {
 	root: '',
@@ -15,24 +12,11 @@ module.exports = {
 	entry: ['@babel/polyfill', './src/app.js'],
 	output: {
 		filename: 'app.js',
+		library: 'lib',
 		path: path.resolve(__dirname, 'dist')
 	},
 	module: {
 		rules: [
-			{
-				test: /\.css$/,
-				use: [
-					'style-loader',
-					{
-						loader: MiniCssExtractPlugin.loader
-					},
-					{
-						loader: 'css-loader',
-						options: { importLoaders: 1 }
-					}
-
-				]
-			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
 				use: [
@@ -65,16 +49,6 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin([
 			'dist'
-		], cleanOptions),
-		new HtmlWebpackPlugin({
-			template: "./index.html",
-			filename: "./index.html"
-		}),
-		new MiniCssExtractPlugin({
-			// Options similar to the same options in webpackOptions.output
-			// both options are optional
-			filename: "[name].css",
-			chunkFilename: "[id].css"
-		})
+		], cleanOptions)
 	]
 }
