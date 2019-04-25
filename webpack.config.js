@@ -11,7 +11,7 @@ const cleanOptions = {
 module.exports = {
 	entry: ['@babel/polyfill', './src/app.js'],
 	output: {
-		path: path.resolve(__dirname, 'dist/js'),
+		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.bundle.js',
 		libraryTarget: 'var',
 		library: 'EntryPoint'
@@ -46,6 +46,11 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['*', '.js', '.json', '.jsx', '.css']
+	},
+	devServer: {
+		publicPath: "/dist/",
+		compress: true,
+		port: 9000
 	},
 	plugins: [
 		new CleanWebpackPlugin([

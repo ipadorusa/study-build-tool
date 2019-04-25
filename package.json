@@ -6,7 +6,8 @@
   "scripts": {
     "start:dev": "webpack-dev-server",
     "dev": "webpack --mode=development",
-    "prod": "webpack --mode=production"
+    "prod": "webpack --mode=production",
+    "watch": "webpack --progress --watch --colors --display-error-details"
   },
   "repository": {
     "type": "git",
